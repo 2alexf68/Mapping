@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mapping</string>
+    <string name="Latitude">Date of birth</string>
+    <string name="Longitude">Date of birth</string>
 </resources>
