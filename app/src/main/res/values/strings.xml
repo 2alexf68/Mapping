@@ -2,4 +2,7 @@
     <string name="app_name">Mapping</string>
     <string name="Latitude">Date of birth</string>
     <string name="Longitude">Date of birth</string>
+    <string name="choosemap">Choose map</string>
+    <string name="regularView">Regular View</string>
+    <string name="cycleMapView">Cycle Map</string>
 </resources>
