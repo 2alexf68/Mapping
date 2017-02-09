@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+
 /**
  * Created by 2alexf68 on 09/02/2017.
  */
@@ -17,21 +19,26 @@ public class MapChooseActivity extends Activity implements View.OnClickListener 
 
         Button regular = (Button)findViewById(R.id.btnRegular);
         regular.setOnClickListener(this);
+
         Button cyclemap = (Button)findViewById(R.id.btnCyclemap);
         cyclemap.setOnClickListener(this);
     }
     public void onClick(View view)
     {
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+
         boolean cyclemap = false;
+
         if (view.getId() == R.id.btnCyclemap)
         {
             cyclemap = true;
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("cyclemap",cyclemap);
-            intent.putExtras(bundle);
-            setResult(RESULT_OK, intent);
-            finish();
         }
+
+        bundle.putBoolean("com.example.cyclemap", cyclemap);
+        intent.putExtras(bundle);
+        setResult(RESULT_OK, intent);
+        finish();
     }
+
 }

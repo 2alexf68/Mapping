@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <EditText
+        android:id="@+id/longitudeEditText"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:inputType="numberDecimal"
+        android:hint="Longitude" />
+
+    <EditText
+        android:id="@+id/latitudeEditText"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:inputType="numberDecimal"
+        android:hint="Latitude"
+        android:layout_gravity="left" />
+
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:text="Go there!" />
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:enabled="true"
+        android:clickable="true"
+        tilesource="Mapnik" />
+
+</LinearLayout>
+
