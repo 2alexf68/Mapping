@@ -2,45 +2,45 @@ package com.example.a2alexf68.mapping;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import org.osmdroid.config.Configuration;
 import android.content.Intent;
 /**
  * Created by 2alexf68 on 09/02/2017.
  */
     public class SetLocation extends Activity implements View.OnClickListener
 {
-        public void onCreate(Bundle savedInstanceState)
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.set_location);
+
+            Button submitButton = (Button) findViewById(R.id.submitButton);
+            submitButton.setOnClickListener(this);
         }
 
     @Override
     public void onClick(View view) {
+        //retrieve our lat and long values from the edit boxes
         EditText latitudeEditText = (EditText)findViewById(R.id.latitudeEditText);
-        String latitudeAsString = latitudeEditText.getText().toString();
+        double latitude = Double.parseDouble(latitudeEditText.getText().toString());
 
+        //double.parsedouble() allows to transform a string into a double type
         EditText longitudeEditText = (EditText)findViewById(R.id.longitudeEditText);
-        String longitudeAsString = longitudeEditText.getText().toString();
+        double longitude =Double.parseDouble(longitudeEditText.getText().toString());
 
-        Button b = (Button) findViewById(R.id.locationButton);
-        b.setOnClickListener(this);
+        //assemble our lat long bundle
+        Bundle latlongBundle = new Bundle();
+        latlongBundle.putDouble("com.example.latitude", latitude);
+        latlongBundle.putDouble("com.example.longitude", longitude);
 
-        double latitude = Double.parseDouble(latitudeAsString);
-        double longitude = Double.parseDouble(longitudeAsString);
-
+        //gives the box which contains information; send the bundle to the parent activity
         Intent intent = new Intent();
-        Bundle bundle = new Bundle();
-
-        bundle.putDouble("com.example.coordinate", latitude);
-       // bundle.putDouble("com.example.coordinate", longitude);
-
-        intent.putExtras(bundle);
-        setResult(RESULT_OK, intent);
+        intent.putExtras(latlongBundle);
+        //if it arrives at this part of the code send the message that everything is okay
+        setResult(RESULT_OK,intent);
         finish();
     }
 }
