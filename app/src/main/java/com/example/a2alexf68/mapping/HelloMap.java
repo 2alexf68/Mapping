@@ -39,7 +39,7 @@ public class HelloMap extends Activity implements OnClickListener
         mv = (MapView)findViewById(R.id.map1);
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(10);
-        mv.getController().setCenter(new GeoPoint(40.1,22.5));
+        mv.getController().setCenter(new GeoPoint(41.1,12.1));
 
         Button b = (Button) findViewById(R.id.locationButton);
         b.setOnClickListener(this);
@@ -56,7 +56,7 @@ public class HelloMap extends Activity implements OnClickListener
 
         if(latitudeAsString.isEmpty() || longitudeAsString.isEmpty())
         {
-            mv.getController().setCenter(new GeoPoint (30.1,20.1));
+            mv.getController().setCenter(new GeoPoint (41.1,12.1));
             mv.getController().setZoom(5);
         } else {
             double latitude = Double.parseDouble(latitudeAsString);
@@ -109,6 +109,21 @@ public class HelloMap extends Activity implements OnClickListener
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
             }
+        }
+        else if (requestCode==1)
+        {
+           if(resultCode==RESULT_OK)
+           {
+               Bundle extras=intent.getExtras();
+               double latitude = extras.getDouble("com.example.coordinate");
+               double longitude = extras.getDouble("com.example.coordinate");
+               //double latitude = Double.parseDouble();
+               //double longitude = Double.parseDouble();
+
+               mv.getController().setCenter(new GeoPoint(longitude, latitude));
+           }
+
+
         }
     }
 }
