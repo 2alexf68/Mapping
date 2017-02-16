@@ -78,7 +78,7 @@ public class HelloMap extends Activity implements OnClickListener
     {
         if (item.getItemId() == R.id.choosemap)
         {
-            Intent intent = new Intent(this,MapChooseActivity.class);
+            Intent intent = new Intent(this,PoiListActivity.class);
             startActivityForResult(intent,0);
             return true;
         }else if (item.getItemId() == R.id.set_location)
