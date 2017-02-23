@@ -1,6 +1,5 @@
 package com.example.a2alexf68.mapping;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +30,7 @@ public class PoiListActivity extends ListActivity {
 
         boolean cyclemap = false;
 
-        if (index == 0)
+        if (index == 0)//0_firefox/1_apus/2_generic
         {
             cyclemap = true;
         }
@@ -47,17 +46,23 @@ public class PoiListActivity extends ListActivity {
             // We have to use ExampleListActivity.this to refer to the outer class (the activity)
             super(PoiListActivity.this, android.R.layout.simple_list_item_1, names);
         }
-
+        @Override //makes sure that you over write a super class; makes sure that it respects the following layout; it should look like this
         public View getView(int index, View convertView, ViewGroup parent) {
             View view = convertView;
             if (view == null) {
+                //inflate our poi entry layout
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.activity_poi_list, parent, false);
+
+
             }
-            TextView title = (TextView) view.findViewById(R.id.poi_name), detail =
-                    (TextView) view.findViewById(R.id.poi_desc);
-            title.setText(names[index]);
-            detail.setText(details[index]);
+            //populate our poi entry with data
+            TextView nameTextView = (TextView) view.findViewById(R.id.poi_name);
+            nameTextView.setText(names[index]);
+
+            TextView descriptionTextView = (TextView)view.findViewById(R.id.poi_desc);
+            descriptionTextView.setText(details[index]);
+            //return view
             return view;
         }
     }
