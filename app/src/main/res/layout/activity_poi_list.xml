@@ -18,11 +18,5 @@
             android:hint="Text2"
             android:background="#94c592" />
 
-    <ImageView
-        android:layout_width="59dp"
-        android:layout_height="59dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/abc_ic_star_black_16dp" />
 </LinearLayout>
 
