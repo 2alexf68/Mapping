@@ -25,9 +25,11 @@
         <activity android:name=".MapChooseActivity" />
         <activity android:name=".SetLocation" />
         <activity android:name=".PoiListActivity" />
+        <!--
         <activity
             android:name=".Preferences"
-            android:label="@string/title_activity_preferences"></activity>
+            android:label="Preferences"></activity>
+            -->
     </application>
 
 </manifest>
